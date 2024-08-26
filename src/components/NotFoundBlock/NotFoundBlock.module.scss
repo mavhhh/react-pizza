@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
+
+.emoji {
+  font-size: clamp(3rem, 5vw, 8rem);
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(1rem, 5vw, 3.5rem);
+}
