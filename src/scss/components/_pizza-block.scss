@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 .pizza-block {
   width: 280px;
@@ -22,7 +22,7 @@
 
   &__selector {
     display: flex;
-    background-color: #f3f3f3;
+    background-color: rgb(232, 232, 232);
     border-radius: 10px;
     flex-direction: column;
     padding: 6px;
