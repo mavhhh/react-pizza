@@ -8,6 +8,7 @@ import NotFound from "./routes/NotFound";
 
 import "./App.css";
 import "./scss/app.scss";
+import { Cart } from "./routes/Cart";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,15 @@ const router = createBrowserRouter([
       <>
         <Header />
         <NotFound />
+      </>
+    ),
+  },
+  {
+    path: "/cart",
+    element: (
+      <>
+        <Header />
+        <Cart />
       </>
     ),
   },
