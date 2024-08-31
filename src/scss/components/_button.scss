@@ -1,19 +1,22 @@
-@import '../variables';
+@import "../variables";
 
 .button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   background-color: $orange;
   border-radius: 30px;
   padding: 10px 20px;
-  min-width: 100px;
+  // min-width: 100px;
   text-align: center;
   cursor: pointer;
-  transition: background-color $duration ease-in-out, border-color $duration ease-in-out;
+  transition: background-color $duration ease-in-out,
+    border-color $duration ease-in-out;
   border: 1px solid transparent;
   @include noselect();
 
-  &,
-  span {
+  > span {
+    margin-left: 8px;
+    margin-right: 8px;
     color: #fff;
   }
 

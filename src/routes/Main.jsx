@@ -2,9 +2,14 @@ import React from "react";
 import { Categories } from "../components/Categories";
 import { Sort } from "../components/Sort";
 import { PizzaBlock } from "../components/PizzaBlock";
-import Skeleton from "../components/PizzaBlock/Skeleton";
+import { Skeleton } from "../components/PizzaBlock/Skeleton";
+
+import { useSelector } from "react-redux";
 
 export default function Main() {
+  const { sort, categoryId } = useSelector((store) => store.filter);
+  const sortType = sort.sortProperty;
+
   const [items, setItems] = React.useState([]);
   const [isLoaded, setIsLoaded] = React.useState(false);
 

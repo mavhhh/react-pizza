@@ -5,10 +5,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Main from "./routes/Main";
 import NotFound from "./routes/NotFound";
+import Cart from "./routes/Cart";
 
 import "./App.css";
 import "./scss/app.scss";
-import { Cart } from "./routes/Cart";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +38,8 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const [searcValue, setSearcValue] = React.useState("");
+
   return (
     <div className="App">
       <div className="wrapper">

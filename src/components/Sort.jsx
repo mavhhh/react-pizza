@@ -1,9 +1,19 @@
 import React from "react";
 
-export const Sort = () => {
-  const sortTypes = ["популярности", "цене", "алфавиту"];
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setSort } from "../redux/slices/filterSlice";
 
-  const [selectedType, setSelectedType] = React.useState(sortTypes[0]);
+const sortTypes = [
+  { name: "популярности", sortProperty: "rating" },
+  { name: "цене", sortProperty: "price" },
+  { name: "алфавиту", sortProperty: "title" },
+];
+
+export const Sort = () => {
+  const dispatch = useDispatch();
+  const sort = useSelector((store) => store.filter.sort);
+
   const [isOpened, setIsOpened] = React.useState(false);
 
   const togglePopup = () => {
@@ -26,17 +36,17 @@ export const Sort = () => {
           />
         </svg>
         <b>Сортировка по</b>
-        <span onClick={togglePopup}>{selectedType}</span>
+        <span onClick={togglePopup}>{sort.name}</span>
       </div>
       {isOpened && (
         <div className="sort__popup">
           <ul>
-            {sortTypes.map((typeName) => (
+            {sortTypes.map((val) => (
               <li
-                onClick={() => setSelectedType(typeName)}
-                className={typeName === selectedType ? "active" : ""}
+                onClick={() => dispatch(setSort(val))}
+                className={val.name === sort.name ? "active" : ""}
               >
-                {typeName}
+                {val.name}
               </li>
             ))}
           </ul>
