@@ -1,7 +1,40 @@
 import React from "react";
-import styles from "./Input.module.scss";
 
-export const Input = () => {
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
+import styles from "./Search.module.scss";
+import { setTitle } from "../../redux/slices/filterSlice";
+import debounce from "lodash.debounce";
+
+export const Search = () => {
+  const dispatch = useDispatch();
+  const [value, setValue] = React.useState("");
+  const title = useSelector((state) => state.filter.title);
+
+  const inputRef = React.useRef();
+
+  const onBlur = () => {
+    setValue("");
+    dispatch(setTitle(""));
+    inputRef.current.focus();
+  };
+
+  const updateSearch = React.useCallback(
+    debounce((str) => {
+      dispatch(setTitle(str));
+    }, 300),
+
+    []
+  );
+
+  const onInputChange = (e) => {
+    const val = e.target.value;
+
+    setValue(val);
+    updateSearch(val);
+  };
+
   return (
     <div className={styles.wrapper}>
       <svg
@@ -15,14 +48,21 @@ export const Input = () => {
         <path
           d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
           stroke="#000000"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
-      <input type="text" className={styles.input}></input>
+      <input
+        className={styles.input}
+        value={value}
+        ref={inputRef}
+        type="text"
+        onChange={onInputChange}
+      ></input>
       <svg
         className={styles.iconClose}
+        onClick={onBlur}
         xmlns="http://www.w3.org/2000/svg"
         width="40px"
         height="40px"

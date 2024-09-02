@@ -12,7 +12,7 @@ const sortTypes = [
 
 export const Sort = () => {
   const dispatch = useDispatch();
-  const sort = useSelector((store) => store.filter.sort);
+  const sort = useSelector((state) => state.filter.sort);
 
   const [isOpened, setIsOpened] = React.useState(false);
 

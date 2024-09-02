@@ -6,7 +6,7 @@ import { setCategoryId } from "../redux/slices/filterSlice";
 
 export const Categories = () => {
   const dispatch = useDispatch();
-  const categoryId = useSelector((store) => store.filter.categoryId);
+  const categoryId = useSelector((state) => state.filter.categoryId);
 
   const onCategoryChange = (id) => {
     dispatch(setCategoryId(id));
