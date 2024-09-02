@@ -39,10 +39,9 @@ export default function Main() {
             <Categories />
             <Sort />
           </div>
-          <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
             {isLoaded
-              ? items.map((obj, index) => <PizzaBlock {...obj} />)
+              ? items.map((obj, index) => <PizzaBlock key={obj.id} {...obj} />)
               : [...Array(6)].map((_, i) => <Skeleton key={i} />)}
           </div>
         </div>

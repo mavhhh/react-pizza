@@ -1,6 +1,7 @@
 @import "../variables";
 
 .sort {
+  z-index: 20;
   position: relative;
   &__label {
     display: flex;
@@ -22,6 +23,7 @@
   }
 
   &__popup {
+    z-index: 100;
     border: 2px solid rgba(0, 0, 0, 0.09);
     position: absolute;
     left: 0;

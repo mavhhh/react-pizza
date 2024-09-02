@@ -7,7 +7,6 @@ import Main from "./routes/Main";
 import NotFound from "./routes/NotFound";
 import Cart from "./routes/Cart";
 
-import "./App.css";
 import "./scss/app.scss";
 
 const router = createBrowserRouter([
@@ -42,9 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="wrapper">
-        <RouterProvider router={router} />
-      </div>
+      <RouterProvider router={router} />
     </div>
   );
 }
