@@ -1,7 +1,6 @@
 import React from "react";
 
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 
 import styles from "./Search.module.scss";
 import { setTitle } from "../../redux/slices/filterSlice";
@@ -10,7 +9,6 @@ import debounce from "lodash.debounce";
 export const Search = () => {
   const dispatch = useDispatch();
   const [value, setValue] = React.useState("");
-  const title = useSelector((state) => state.filter.title);
 
   const inputRef = React.useRef();
 
@@ -21,9 +19,10 @@ export const Search = () => {
   };
 
   const updateSearch = React.useCallback(
-    debounce((str) => {
-      dispatch(setTitle(str));
-    }, 300),
+    () =>
+      debounce((str) => {
+        dispatch(setTitle(str));
+      }, 300),
 
     []
   );

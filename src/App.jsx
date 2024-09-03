@@ -37,8 +37,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [searcValue, setSearcValue] = React.useState("");
-
   return (
     <div className="App">
       <RouterProvider router={router} />
