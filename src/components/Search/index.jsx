@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 
 import styles from "./Search.module.scss";
 import { setTitle } from "../../redux/slices/filterSlice";
-import debounce from "lodash.debounce";
 
 export const Search = () => {
   const dispatch = useDispatch();
@@ -18,20 +17,11 @@ export const Search = () => {
     inputRef.current.focus();
   };
 
-  const updateSearch = React.useCallback(
-    () =>
-      debounce((str) => {
-        dispatch(setTitle(str));
-      }, 300),
-
-    []
-  );
-
   const onInputChange = (e) => {
     const val = e.target.value;
 
     setValue(val);
-    updateSearch(val);
+    dispatch(setTitle(val));
   };
 
   return (
