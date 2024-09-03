@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { CartItem } from "../components/CartItem";
 import { clearCart } from "../redux/slices/cartSlice";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -15,9 +16,9 @@ const Cart = () => {
         <h2>Корзина пуста 😕</h2>
         <p>Для того, чтобы заказать пиццу, перейди на главную страницу.</p>
         <img src="/img/empty-cart.png" alt="Empty cart" />
-        <a href="/" className="button button--black">
+        <Link to={"/"} className="button button--black">
           <span>Вернуться назад</span>
-        </a>
+        </Link>
       </div>
     );
   }

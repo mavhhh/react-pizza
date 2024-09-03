@@ -32,7 +32,12 @@ export default function Main() {
 
   React.useEffect(() => {
     getPizzas();
+    console.log("fetch");
   }, [sort, categoryId, title]);
+
+  React.useEffect(() => {
+    console.log("main title");
+  }, [title]);
 
   return (
     <>
@@ -47,6 +52,10 @@ export default function Main() {
               items.map((obj, index) => <PizzaBlock key={obj.id} {...obj} />)
             ) : (
               <>
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
                 <Skeleton />
                 <Skeleton />
                 <Skeleton />

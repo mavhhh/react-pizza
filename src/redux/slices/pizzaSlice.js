@@ -9,14 +9,13 @@ export const fetchPizzas = createAsyncThunk(
       { params }
     );
 
-    console.log(data);
     return data;
   }
 );
 
 const initialState = {
   items: [],
-  status: "loading",
+  status: "loading" | "success" | "error",
 };
 
 const pizzaSlice = createSlice({
