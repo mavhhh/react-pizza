@@ -43,4 +43,4 @@ npm run build
 ## Команда проекта
 Оставьте пользователям контакты и инструкции, как связаться с командой разработки.
 
-- [Верховцев Матвей](https://github.com/mavhhh) — Front-End Engineer
+- [mavhhh](https://github.com/mavhhh) — Front-End Engineer
