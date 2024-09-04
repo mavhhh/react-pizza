@@ -49,7 +49,7 @@ export default function Main() {
           </div>
           <div className="content__items">
             {status === "success" ? (
-              items.map((obj, index) => <PizzaBlock key={obj.id} {...obj} />)
+              items.map((obj, index) => <PizzaBlock key={obj.id} item={obj} />)
             ) : (
               <>
                 <Skeleton />

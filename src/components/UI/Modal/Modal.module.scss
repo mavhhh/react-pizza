@@ -1,0 +1,73 @@
+@import "../../../scss/variables";
+
+.modal {
+  transition: 0.2s ease-in;
+  background-color: transparent;
+  visibility: hidden;
+
+  height: 100lvh;
+  width: 100lvw;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 100;
+  overflow: hidden;
+}
+
+.modalActive {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.modalContent {
+  transition: 0.2s ease-in;
+  transform: scale(0);
+
+  border: 2px solid white;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding: 5rem;
+  border-radius: 24px;
+  background-color: white;
+
+  z-index: 110;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modalContentActive {
+  transform: scale(1);
+}
+
+.iconWrapper {
+  position: absolute;
+  cursor: pointer;
+  top: -38px;
+  right: -38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #232323;
+  padding: 32px;
+
+  border-radius: 100%;
+  z-index: 120;
+}
+
+.iconClose {
+  height: 18px;
+  width: 20px;
+  z-index: 130;
+  transform: translate(-15px, 15px);
+}
