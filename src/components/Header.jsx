@@ -64,7 +64,7 @@ export const Header = () => {
               <span className="button--cart__qty">
                 {items.reduce((sum, item) => (sum += item.count), 0)}
               </span>
-              <div className="button--cart__delimiter" />
+              <div className="button__delimiter" />
               <span className="button--cart__price" >{totalPrice} ₽</span>
             </Link>
           </div>

@@ -5,7 +5,7 @@
   align-items: center;
   background-color: $orange;
   border-radius: 30px;
-  padding: 10px 20px;
+  padding: 10px 10px;
   // min-width: 100px;
   text-align: center;
   cursor: pointer;
@@ -15,8 +15,8 @@
   @include noselect();
 
   > span {
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
     color: #fff;
   }
 
@@ -92,10 +92,10 @@
 
   &__delimiter {
     width: 1px;
-    height: 25px;
+    height: 20px;
     background-color: $gray;
-    margin-left: 14px;
-    margin-right: 14px;
+    margin-left: 8px;
+    margin-right: 8px;
   }
 
   &--add {

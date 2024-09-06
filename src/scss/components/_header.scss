@@ -60,12 +60,15 @@
     }
   }
 }
-
-.button--cart__delimiter {
-  @media (max-width: 620px) {
-    display: none;
-  }
+.button--cart{
+  padding: 0;
 }
+
+// .button--cart__delimiter {
+//   @media (max-width: 620px) {
+//     display: none;
+//   }
+// }
 
 .button--cart__qty {
   text-wrap: nowrap;
