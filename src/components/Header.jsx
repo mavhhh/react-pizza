@@ -9,6 +9,7 @@ import logoSvg from "../assets/img/pizza-logo.svg";
 
 export const Header = () => {
   const { items, totalPrice } = useSelector((state) => state.cart);
+  React.useEffect(() => {}, []);
 
   const location = useLocation();
 
@@ -63,8 +64,8 @@ export const Header = () => {
               <span className="button--cart__qty">
                 {items.reduce((sum, item) => (sum += item.count), 0)}
               </span>
-              <div className="button__delimiter" />
-              <span>{totalPrice} ₽</span>
+              <div className="button--cart__delimiter" />
+              <span className="button--cart__price" >{totalPrice} ₽</span>
             </Link>
           </div>
         )}

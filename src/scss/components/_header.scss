@@ -61,14 +61,19 @@
   }
 }
 
-.button__delimiter {
+.button--cart__delimiter {
   @media (max-width: 620px) {
     display: none;
   }
 }
 
 .button--cart__qty {
+  text-wrap: nowrap;
   @media (max-width: 620px) {
     display: none;
   }
+}
+
+button--cart__price {
+  text-wrap: nowrap;
 }

@@ -20,8 +20,10 @@ export const cart = createSlice({
         state.items.push({ ...action.payload, count: 1 });
       }
 
-      console.log(state.items);
-      state.totalPrice += action.payload.price;
+      state.totalPrice = state?.items.reduce(
+        (sum, item) => (sum += item.price),
+        0
+      );
     },
 
     removeItem(state, action) {
@@ -34,10 +36,19 @@ export const cart = createSlice({
       if (alreadyIn?.count < 1) {
         state.items = state.items.filter((item) => item.id !== action.payload);
       }
+
+      state.totalPrice = state?.items.reduce(
+        (sum, item) => (sum += item.price),
+        0
+      );
     },
 
     clearItem(state, action) {
       state.items = state.items.filter((item) => item.id !== action.payload);
+      state.totalPrice = state?.items.reduce(
+        (sum, item) => (sum += item.price),
+        0
+      );
     },
 
     clearCart(state) {
