@@ -1,21 +1,16 @@
 @import "../../../scss/variables";
 
 .modal {
-  transition: 0.2s ease-in;
   background-color: transparent;
   visibility: hidden;
-
   height: 100lvh;
   width: 100lvw;
-
   position: fixed;
   top: 0;
   left: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   z-index: 100;
   overflow: hidden;
 }
@@ -26,13 +21,11 @@
 }
 
 .modalContent {
-  transition: 0.2s ease-in;
-  transform: scale(0);
-
+  visibility: hidden;
   border: 2px solid white;
   box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.1);
   position: relative;
-  padding: 5rem;
+  padding: 3rem;
   border-radius: 24px;
   background-color: white;
 
@@ -46,7 +39,7 @@
 }
 
 .modalContentActive {
-  transform: scale(1);
+  visibility: visible;
 }
 
 .iconWrapper {

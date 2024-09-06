@@ -8,22 +8,16 @@ export const Modal = ({ active, setActive, children }) => {
     setActive(false);
   };
 
-  React.useEffect(() => {});
-
   return (
     <div
       onClick={close}
-      className={
-        active ? `${styles.modal} ${styles.modalActive}` : styles.modal
-      }
+      className={`${styles.modal} ${active ? styles.modalActive : ""}`}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={
-          active
-            ? `${styles.modalContent} ${styles.modalContentActive}`
-            : styles.modalContent
-        }
+        className={`${styles.modalContent} ${
+          active ? styles.modalContentActive : ""
+        }`}
       >
         <div onClick={close} className={styles.iconWrapper}>
           <svg

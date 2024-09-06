@@ -36,13 +36,18 @@ export const PizzaBlock = ({ item }) => {
     <>
       {isModalOpen && (
         <Modal active={isModalOpen} setActive={setIsModalOpen}>
-          <PizzaDeatails item={{ id, title, price, imageUrl, sizes, types }} />
+          <PizzaDeatails item={item} />
         </Modal>
       )}
       <div onClick={() => setIsModalOpen(true)} className="pizza-block">
         <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
-        <h4 className="pizza-block__title">{title}</h4>
-        <div className="pizza-block__selector">
+        <h4 onClick={(e) => e.stopPropagation()} className="pizza-block__title">
+          {title}
+        </h4>
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="pizza-block__selector"
+        >
           <ul>
             {types.map((typeId) => {
               return (
@@ -68,7 +73,10 @@ export const PizzaBlock = ({ item }) => {
             ))}
           </ul>
         </div>
-        <div className="pizza-block__bottom">
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="pizza-block__bottom"
+        >
           <div className="pizza-block__price">от {price} ₽</div>
           <div
             className="button button--outline button--add"

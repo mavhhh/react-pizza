@@ -1,0 +1,105 @@
+@import "../../scss/variables";
+
+.wrapper {
+  width: 280px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+  @media (width >= 1200px) {
+    align-items: flex-start;
+
+    width: 700px;
+    flex-direction: row;
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (width >= 1200px) {
+    width: 100%;
+    margin-left: 1.5rem;
+  }
+}
+
+.description {
+  font-size: 14px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.selector {
+  margin-top: 1.5rem;
+  display: flex;
+  background-color: $gray;
+  border-radius: 10px;
+  width: 100%;
+  flex-direction: column;
+  padding: 6px;
+
+  ul {
+    display: flex;
+    flex: 1;
+
+    &:first-of-type {
+      margin-bottom: 6px;
+    }
+
+    li {
+      padding: 8px;
+      flex: 1;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+
+  .active {
+    background: #ffffff;
+    border-radius: 5px;
+    cursor: auto;
+  }
+}
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  @media (width >= 1200px) {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+.price {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: 0.015em;
+  margin-right: 2rem;
+}
+
+.image {
+  width: 260px;
+  height: 260px;
+  @media (width >= 1200px) {
+    width: 660px;
+    flex-direction: row;
+    width: 400px;
+    height: 400px;
+  }
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1%;
+  margin-bottom: 20px;
+}

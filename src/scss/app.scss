@@ -43,7 +43,8 @@ body {
     margin-top: 2rem;
     display: grid;
     justify-items: center;
-    gap: 1rem;
+    gap: 2rem;
+    row-gap: 2rem;
 
     @media (min-width: 350px) {
       grid-template-columns: 1fr;

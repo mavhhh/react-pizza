@@ -31,8 +31,6 @@ export const Header = () => {
         {!location.pathname.includes("cart") && (
           <div className="header__cart">
             <Link to={`/cart`} className="button button--cart">
-              <span>{totalPrice} ₽</span>
-              <div className="button__delimiter"></div>
               <svg
                 width="18"
                 height="18"
@@ -62,7 +60,11 @@ export const Header = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span>{items.reduce((sum, item) => (sum += item.count), 0)}</span>
+              <span className="button--cart__qty">
+                {items.reduce((sum, item) => (sum += item.count), 0)}
+              </span>
+              <div className="button__delimiter" />
+              <span>{totalPrice} ₽</span>
             </Link>
           </div>
         )}
