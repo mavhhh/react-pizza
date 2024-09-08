@@ -3,23 +3,23 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import styles from "./Search.module.scss";
-import { setTitle } from "../../redux/slices/filterSlice";
+import { setTitle } from "../../redux/slices/filterSlice.ts";
 
-export const Search = () => {
+export const Search: React.FC = () => {
   const dispatch = useDispatch();
   const [value, setValue] = React.useState("");
 
-  const inputRef = React.useRef();
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
   const onBlur = () => {
     setValue("");
     dispatch(setTitle(""));
-    inputRef.current.focus();
+
+    inputRef.current?.focus();
   };
 
-  const onInputChange = (e) => {
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
-
     setValue(val);
     dispatch(setTitle(val));
   };

@@ -1,9 +1,18 @@
 import React from "react";
-
 import styles from "./Modal.module.scss";
 
-export const Modal = ({ active, setActive, children }) => {
-  const close = (event) => {
+type ModalProps = {
+  active: boolean;
+  setActive: React.Dispatch<React.SetStateAction<boolean>>;
+  children: React.ReactElement;
+};
+
+export const Modal: React.FC<ModalProps> = ({
+  active,
+  setActive,
+  children,
+}: ModalProps) => {
+  const close = (event: React.MouseEvent<HTMLElement>) => {
     event.nativeEvent.stopImmediatePropagation();
     setActive(false);
   };

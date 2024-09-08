@@ -2,17 +2,23 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setSort } from "../redux/slices/filterSlice";
+import { setSort } from "../redux/slices/filterSlice.ts";
+import { RootState } from "../redux/store.ts";
 
-const sortTypes = [
+type SortType = {
+  name: string;
+  sortProperty: string;
+};
+
+const sortTypes: SortType[] = [
   { name: "популярности", sortProperty: "rating" },
   { name: "цене", sortProperty: "price" },
   { name: "алфавиту", sortProperty: "title" },
 ];
 
-export const Sort = () => {
+export const Sort: React.FC = () => {
   const dispatch = useDispatch();
-  const sort = useSelector((state) => state.filter.sort);
+  const sort = useSelector((state: RootState) => state.filter.sort);
 
   const [isOpened, setIsOpened] = React.useState(false);
 

@@ -2,13 +2,14 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setCategoryId } from "../redux/slices/filterSlice";
+import { setCategoryId } from "../redux/slices/filterSlice.ts";
+import { RootState } from "../redux/store.ts";
 
-export const Categories = () => {
+export const Categories: React.FC = () => {
   const dispatch = useDispatch();
-  const categoryId = useSelector((state) => state.filter.categoryId);
+  const categoryId = useSelector((state: RootState) => state.filter.categoryId);
 
-  const onCategoryChange = (id) => {
+  const onCategoryChange = (id: number) => {
     dispatch(setCategoryId(id));
   };
 

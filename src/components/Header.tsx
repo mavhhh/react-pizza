@@ -1,13 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
 import { Link, useLocation } from "react-router-dom";
-
-import { Search } from "./Search";
-
+import { Search } from "./Search/index.tsx";
 import logoSvg from "../assets/img/pizza-logo.svg";
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const { items, totalPrice } = useSelector((state) => state.cart);
   React.useEffect(() => {}, []);
 
@@ -65,7 +62,7 @@ export const Header = () => {
                 {items.reduce((sum, item) => (sum += item.count), 0)}
               </span>
               <div className="button__delimiter" />
-              <span className="button--cart__price" >{totalPrice} ₽</span>
+              <span className="button--cart__price">{totalPrice} ₽</span>
             </Link>
           </div>
         )}

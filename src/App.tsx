@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Header } from "./components/Header";
+import { Header } from "./components/Header.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Main from "./routes/Main";
-import NotFound from "./routes/NotFound";
-import Cart from "./routes/Cart";
+import Main from "./routes/Main.tsx";
+import NotFound from "./routes/NotFound.tsx";
+import Cart from "./routes/Cart.tsx";
 
 import "./scss/app.scss";
 

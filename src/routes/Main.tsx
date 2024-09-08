@@ -1,27 +1,32 @@
 import React from "react";
 
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../redux/store.ts";
 
-import { Categories } from "../components/Categories";
-import { Sort } from "../components/Sort";
-import { PizzaBlock } from "../components/PizzaBlock";
-import { Skeleton } from "../components/PizzaBlock/Skeleton";
-import { fetchPizzas } from "../redux/slices/pizzaSlice";
+import { Categories } from "../components/Categories.tsx";
+import { Sort } from "../components/Sort.tsx";
+import { PizzaBlock } from "../components/PizzaBlock/index.tsx";
+import { Skeleton } from "../components/PizzaBlock/Skeleton.tsx";
+import { fetchPizzas } from "../redux/slices/pizzaSlice.ts";
+import { RootState } from "../redux/store.ts";
+import type { FetchPizzasArgs } from "../redux/slices/pizzaSlice.ts";
 
 export default function Main() {
-  const dispatch = useDispatch();
-  const { items, status } = useSelector((state) => state.pizza);
-  const { sort, categoryId, title } = useSelector((state) => state.filter);
+  const dispatch = useAppDispatch();
+  const { items, status } = useSelector((state: RootState) => state.pizza);
+  const { sort, categoryId, title } = useSelector(
+    (state: RootState) => state.filter
+  );
 
   const getPizzas = async () => {
     const sortBy = sort.sortProperty.replace("-", "");
-    const category = categoryId > 0 ? categoryId : "";
+    const category = (categoryId > 0 ? categoryId : "").toString();
 
-    const params = new URLSearchParams();
-    params.append("category", category);
-    params.append("sortBy", sortBy);
-    params.append("title", title);
+    const params: FetchPizzasArgs = {
+      category: category,
+      sortBy: sortBy,
+      title: title,
+    };
 
     try {
       await dispatch(fetchPizzas(params));

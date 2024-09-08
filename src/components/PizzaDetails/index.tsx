@@ -1,17 +1,30 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../../redux/slices/cartSlice";
+import { addCartItem } from "../../redux/slices/cartSlice.ts";
 
-import { Modal } from "../UI/Modal";
-import { PizzaDeatails } from "../PizzaDetails";
+import styles from "./PizzaDetalis.module.scss";
+import type { PizzaItem } from "../../redux/slices/pizzaSlice.ts";
+import { RootState } from "../../redux/store.ts";
 
-export const PizzaBlock = ({ item }) => {
-  const { id, title, price, imageUrl, sizes, types } = item;
-
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
+export const PizzaDeatails: React.FC<{ item: PizzaItem }> = ({
+  item,
+}: {
+  item: PizzaItem;
+}) => {
+  const {
+    id,
+    imageUrl,
+    title,
+    types,
+    sizes,
+    price,
+    description,
+    category,
+    rating,
+  } = item;
 
   const dispatch = useDispatch();
-  const cartItem = useSelector((state) =>
+  const cartItem = useSelector((state: RootState) =>
     state.cart.items.find((item) => item.id === id)
   );
   const typeNames = ["Тонкое", "Традиционное"];
@@ -28,33 +41,24 @@ export const PizzaBlock = ({ item }) => {
       type: activeType,
       size: activeSize,
     };
-    dispatch(addItem(item));
-    console.log(item);
+    dispatch(addCartItem(item));
   };
 
   return (
-    <>
-      {isModalOpen && (
-        <Modal active={isModalOpen} setActive={setIsModalOpen}>
-          <PizzaDeatails item={item} />
-        </Modal>
-      )}
-      <div onClick={() => setIsModalOpen(true)} className="pizza-block">
-        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
-        <h4 onClick={(e) => e.stopPropagation()} className="pizza-block__title">
-          {title}
-        </h4>
-        <div
-          onClick={(e) => e.stopPropagation()}
-          className="pizza-block__selector"
-        >
+    <div className={styles.wrapper}>
+      <img className={styles.image} src={imageUrl} alt="Pizza" />
+
+      <div className={styles.details}>
+        <h4 className={styles.title}>{title}</h4>
+        <div className={styles.description}>{description}</div>
+        <div className={styles.selector}>
           <ul>
             {types.map((typeId) => {
               return (
                 <li
                   key={typeId}
                   onClick={() => setActiveType(typeId)}
-                  className={activeType === typeId ? "active" : ""}
+                  className={activeType === typeId ? styles.active : ""}
                 >
                   {typeNames[typeId]}
                 </li>
@@ -66,18 +70,15 @@ export const PizzaBlock = ({ item }) => {
               <li
                 key={i}
                 onClick={() => setActiveSize(i)}
-                className={activeSize === i ? "active" : ""}
+                className={activeSize === i ? styles.active : ""}
               >
                 {item} см
               </li>
             ))}
           </ul>
         </div>
-        <div
-          onClick={(e) => e.stopPropagation()}
-          className="pizza-block__bottom"
-        >
-          <div className="pizza-block__price">от {price} ₽</div>
+        <div className={styles.bottom}>
+          <div className={styles.price}>от {price} ₽</div>
           <div
             className="button button--outline button--add"
             onClick={handleAddClick}
@@ -95,10 +96,10 @@ export const PizzaBlock = ({ item }) => {
               />
             </svg>
             <span>Добавить</span>
-            {cartItem?.count > 0 ? <i>{cartItem?.count}</i> : ""}
+            {cartItem?.count ? <i>{cartItem?.count}</i> : ""}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
