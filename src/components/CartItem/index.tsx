@@ -5,8 +5,9 @@ import {
   removeCartItem,
   clearCartItem,
 } from "../../redux/slices/cartSlice.ts";
+import { PizzaItem } from "../../redux/slices/pizzaSlice.ts";
 
-export const CartItem: React.FC = (item) => {
+export const CartItem: React.FC<PizzaItem> = (item: PizzaItem) => {
   const dispatch = useDispatch();
   const { id, title, imageUrl, price, count } = item;
 
