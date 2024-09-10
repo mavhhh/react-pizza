@@ -1,6 +1,6 @@
 @import "../../scss/variables";
 
-.pizza-block {
+.pizzaBlock {
   width: 320px;
   text-align: center;
   border-radius: 1rem;
@@ -17,61 +17,59 @@
     -moz-box-shadow: 0px 0px 24px 0px rgba(34, 60, 80, 0.2);
     box-shadow: 0px 0px 24px 0px rgba(34, 60, 80, 0.2);
   }
+}
 
-  &__image {
-    width: 260px;
-  }
+.image {
+  width: 260px;
+}
 
-  &__title {
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 1%;
-    margin-bottom: 20px;
-  }
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1%;
+  margin-bottom: 20px;
+}
 
-  &__selector {
+.selector {
+  margin-top: 1.5rem;
+  display: flex;
+  background-color: $gray;
+  border-radius: 10px;
+  width: 100%;
+  flex-direction: column;
+  padding: 6px;
+
+  ul {
     display: flex;
-    background-color: $gray;
-    border-radius: 10px;
-    width: 100%;
-    flex-direction: column;
-    padding: 6px;
+    flex: 1;
 
-    ul {
-      display: flex;
+    li {
+      margin-bottom: 6px;
+
+      padding: 8px;
       flex: 1;
-
-      &:first-of-type {
-        margin-bottom: 6px;
-      }
-
-      li {
-        padding: 8px;
-        flex: 1;
-        cursor: pointer;
-        font-weight: 600;
-        font-size: 14px;
-        @include noselect();
-        &.active {
-          background: #ffffff;
-          border-radius: 5px;
-          cursor: auto;
-        }
-      }
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
     }
   }
+}
 
-  &__bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
+.active {
+  background: #ffffff;
+  border-radius: 5px;
+  cursor: auto;
+}
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
 
-  &__price {
-    font-weight: bold;
-    font-size: 22px;
-    line-height: 27px;
-    letter-spacing: 0.015em;
-  }
+.price {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: 0.015em;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addCartItem } from "../../redux/slices/cartSlice.ts";
 
-import styles from "./PizzaDetalis.module.scss";
+import styles from "./PizzaDetails.module.scss";
 import type { PizzaItem } from "../../redux/slices/pizzaSlice.ts";
 import { RootState } from "../../redux/store.ts";
 

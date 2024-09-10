@@ -7,6 +7,8 @@ import { PizzaDeatails } from "../PizzaDetails/index.tsx";
 import { RootState } from "../../redux/store.ts";
 import type { PizzaItem } from "../../redux/slices/pizzaSlice.ts";
 
+import styles from "./PizzaBlock.module.scss";
+
 export const PizzaBlock: React.FC<{ item: PizzaItem }> = ({
   item,
 }: {
@@ -45,14 +47,14 @@ export const PizzaBlock: React.FC<{ item: PizzaItem }> = ({
           <PizzaDeatails item={item} />
         </Modal>
       )}
-      <div onClick={() => setIsModalOpen(true)} className="pizza-block">
-        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
-        <h4 onClick={(e) => e.stopPropagation()} className="pizza-block__title">
+      <div onClick={() => setIsModalOpen(true)} className={styles.pizzaBlock}>
+        <img className={styles.image} src={imageUrl} alt="Pizza" />
+        <h4 onClick={(e) => e.stopPropagation()} className={styles.title}>
           {title}
         </h4>
         <div
           onClick={(e: React.MouseEvent<HTMLElement>) => e.stopPropagation()}
-          className="pizza-block__selector"
+          className={styles.selector}
         >
           <ul>
             {types.map((typeId) => {
@@ -60,7 +62,7 @@ export const PizzaBlock: React.FC<{ item: PizzaItem }> = ({
                 <li
                   key={typeId}
                   onClick={() => setActiveType(typeId)}
-                  className={activeType === typeId ? "active" : ""}
+                  className={activeType === typeId ? styles.active : ""}
                 >
                   {typeNames[typeId]}
                 </li>
@@ -72,18 +74,15 @@ export const PizzaBlock: React.FC<{ item: PizzaItem }> = ({
               <li
                 key={i}
                 onClick={() => setActiveSize(i)}
-                className={activeSize === i ? "active" : ""}
+                className={activeSize === i ? styles.active : ""}
               >
                 {item} см
               </li>
             ))}
           </ul>
         </div>
-        <div
-          onClick={(e) => e.stopPropagation()}
-          className="pizza-block__bottom"
-        >
-          <div className="pizza-block__price">от {price} ₽</div>
+        <div onClick={(e) => e.stopPropagation()} className={styles.bottom}>
+          <div className={styles.price}>от {price} ₽</div>
           <div
             className="button button--outline button--add"
             onClick={handleAddClick}
