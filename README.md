@@ -41,6 +41,4 @@ npm run build
 ```
 
 ## Команда проекта
-Оставьте пользователям контакты и инструкции, как связаться с командой разработки.
-
 - [mavhhh](https://github.com/mavhhh) — Front-End Engineer
