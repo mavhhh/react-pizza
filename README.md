@@ -1,5 +1,5 @@
 # react-pizza
-Реализация интерфейса интернет магазина для заказа пиццы.
+Generic pizza marketplace.
 
 ![image](https://github.com/user-attachments/assets/f2012db5-c6d5-433d-bd4e-f0880dad8299)
 
@@ -41,6 +41,4 @@ npm run build
 ```
 
 ## Команда проекта
-Оставьте пользователям контакты и инструкции, как связаться с командой разработки.
-
 - [mavhhh](https://github.com/mavhhh) — Front-End Engineer
